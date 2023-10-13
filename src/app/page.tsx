@@ -1,8 +1,6 @@
-"use client"
-import LayoutPage from "../../components/Layout/page";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <LayoutPage />
+    <>landing Page</>
   )
 }

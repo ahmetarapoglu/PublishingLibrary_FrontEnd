@@ -4,7 +4,7 @@ const Footer = () => {
     const { Footer } = Layout;
 
     return (
-        <Footer style={{ textAlign: 'center' }}>PublishingLibrary ©2023 Created AR7B</Footer>
+        <Footer style={{ textAlign: 'center' }}>BookStore ©2023 Created AR7B</Footer>
     );
 };
 

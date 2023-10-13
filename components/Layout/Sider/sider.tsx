@@ -1,5 +1,4 @@
 import { Layout, Menu, Image } from 'antd';
-import { UploadOutlined, UserOutlined, VideoCameraOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import MenuPage from './menu';
 
 
@@ -11,17 +10,17 @@ const Sider = () => {
             breakpoint="lg"
             collapsedWidth="0"
             onBreakpoint={(broken) => {
-                console.log(broken);
+                // console.info(broken);
             }}
             onCollapse={(collapsed, type) => {
-                console.log(collapsed, type);
+                // console.info(collapsed, type);
             }}
         >
             <Image
                 width={"100%"}
-                height={65}
-                src="/images/logo1.avif"
+                src="/images/logo2.png"
                 preview={false}
+                alt="no-image"
             />
             <MenuPage />
         </Sider>

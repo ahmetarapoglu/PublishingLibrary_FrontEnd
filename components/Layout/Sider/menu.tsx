@@ -1,43 +1,65 @@
-import { BiSolidBookAlt } from "react-icons/bi";
-import { BsFillPersonFill } from "react-icons/bs";
+import { BiSolidCategoryAlt } from "react-icons/bi";
+import { FaFileInvoiceDollar } from "react-icons/fa";
+import { BsFillPersonFill, BsPersonFill } from "react-icons/bs";
+import { HiUsers } from "react-icons/hi";
+import { FaShoppingCart } from "react-icons/fa";
+import { ImBooks } from "react-icons/im";
+import { AiFillHome } from "react-icons/ai";
+
 import { Menu } from 'antd';
+import { useRouter } from "next/navigation";
 
 const MenuPage = () => {
+    const router = useRouter();
     return (
         <Menu
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
+            onSelect={({ key, keyPath }) => {
+                // console.info(key, keyPath)
+            }}
+            onClick={({ keyPath }) => router.push(`/${keyPath}`)}
             items={[
                 {
-                    key: '1',
+                    key: 'dashboard',
+                    icon: <AiFillHome />,
+                    label: 'Dashboard',
+                },
+                {
+                    key: 'author',
                     icon: <BsFillPersonFill />,
                     label: 'Author',
                 },
                 {
-                    key: '2',
-                    icon: <BiSolidBookAlt />,
+                    key: 'book',
+                    icon: <ImBooks />,
                     label: 'Books',
                 },
                 {
-                    key: '3',
-                    icon: <BiSolidBookAlt />,
+                    key: 'category',
+                    icon: <BiSolidCategoryAlt />,
                     label: 'Category',
                 },
                 {
-                    key: '4',
-                    icon: <BiSolidBookAlt />,
+                    key: 'branch',
+                    icon: <BsPersonFill />,
                     label: 'Branch',
                 },
                 {
-                    key: '5',
-                    icon: <BiSolidBookAlt />,
+                    key: 'order',
+                    icon: <FaShoppingCart />,
                     label: 'Order',
                 },
                 {
-                    key: '6',
-                    icon: <BiSolidBookAlt />,
+                    key: 'invoice',
+                    icon: <FaFileInvoiceDollar />,
                     label: 'Invoice',
+                },
+                {
+                    key: 'user',
+                    icon: <HiUsers />,
+                    label: 'Users',
                 },
             ]}
         />
