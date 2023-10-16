@@ -4,16 +4,17 @@ interface DataType {
     name?: string;
     placeholder?: string;
     rules?:
-    [{ required: boolean }]
+    [{ required: boolean }];
+    type: string
 }
-const AntdInput = ({ label = "", name = "", rules = [{ required: true }], placeholder = "" }: DataType) => {
+const AntdInput = ({ label = "", name = "", rules = [{ required: true }], placeholder = "", type }: DataType) => {
     return (
         <Form.Item
             label={label}
             name={name}
             rules={rules}
         >
-            <Input placeholder={placeholder} />
+            <Input placeholder={placeholder} type={type} />
         </Form.Item>
     );
 };

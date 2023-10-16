@@ -1,7 +1,7 @@
 "use client"
 import { Button, Table, Form, Modal, Input } from 'antd';
 import type { TablePaginationConfig } from 'antd/es/table';
-import { getData, postData } from '../../../service/fetchData';
+import { postData } from '../../../service/fetchData';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { changeEditState, changeModelState, updateTable } from '../../../store/slice/tableStateSlice';
@@ -141,7 +141,7 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
                         onFinish={onFinish}
                         autoComplete="off">
                         {formFields?.map((field: any, index: any) =>
-                            React.createElement(Components[field.component], { placeholder: field.placeholder, ...field.data, selectOption: field.selectOption })
+                            React.createElement(Components[field.component], { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption })
                         )}
                     </Form>
                 </Modal>

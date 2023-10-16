@@ -99,5 +99,36 @@ const invoiceFields = [
     },
 ]
 
+const userFields = [
+    {
+        component: "AntdInput",
+        placeholder: "Type User Name",
+        data: {
+            label: "User Name",
+            name: "userName",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Type Your Email",
+        data: {
+            label: "Email",
+            name: "email",
+            rules: [{ required: true, type: 'email' }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Type Your Password",
+        type: 'password',
+        data: {
+            label: "Password",
+            name: "password",
+            rules: [{ required: true }],
+        },
+    }
+]
 
-export { categoryFields, branchFields, orderFields, invoiceFields }
+
+export { categoryFields, branchFields, orderFields, invoiceFields, userFields }
