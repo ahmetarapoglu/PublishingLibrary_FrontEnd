@@ -12,7 +12,7 @@ import { Components } from '../../../constants/components';
 const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editEndPoint, formFields }: any) => {
 
     const dispatch = useDispatch();
-    const { isModalOpen, editState, id, tableUpdateNumber, search } = useSelector((state: any) => state.tableState);
+    const { isModalOpen, editState, id, tableUpdateNumber, search, editData } = useSelector((state: any) => state.tableState);
 
     const [pagination, setPagination] = useState({
         "current": 1,
@@ -91,17 +91,8 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
         }
     };
 
-    const getItemData = async () => {
-        try {
-            const response = await getData(`${getItemEndPoint}/${id}`);
-            form.setFieldsValue(response.data);
-        } catch (err) {
-            throw new Error("message :" + err)
-        }
-    }
-
     useEffect(() => {
-        editState && getItemData()
+        editState && form.setFieldsValue(editData);
     }, [editState])
 
     //---------------- End Model ----------------//

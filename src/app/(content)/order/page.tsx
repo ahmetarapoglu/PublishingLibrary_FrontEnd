@@ -47,9 +47,9 @@ const columns: ColumnsType<DataType> = [
         key: 'branchName',
     },
     {
-        title: 'BookVersion Id',
-        dataIndex: 'bookVersionId',
-        key: 'bookVersionId',
+        title: 'BookVersion Number',
+        dataIndex: 'number',
+        key: 'number',
     },
     {
         title: 'Book Count',
@@ -60,12 +60,13 @@ const columns: ColumnsType<DataType> = [
         title: 'Action',
         key: 'action',
         dataIndex: 'id',
-        render(value) {
+        render(value, record) {
             return (
                 <Action
                     deleteUrl={points.DeleteOrder}
                     id={value}
                     type={"model"}
+                    data={record}
                 />
             )
         },

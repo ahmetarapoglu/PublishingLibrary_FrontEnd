@@ -56,12 +56,13 @@ const columns: ColumnsType<DataType> = [
         title: 'Action',
         key: 'action',
         dataIndex: 'id',
-        render(value) {
+        render(value, record) {
             return (
                 <Action
                     deleteUrl={points.DeleteBranch}
                     id={value}
                     type={"model"}
+                    data={record}
                 />
             )
         },

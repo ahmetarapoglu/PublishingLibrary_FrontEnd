@@ -3,16 +3,17 @@ import Link from 'next/link';
 import { FcSettings } from 'react-icons/fc';
 import { DeleteData } from '../../../service/fetchData';
 import { useDispatch, useSelector } from "react-redux";
-import { changeEditState, changeModelState, getId, updateTable } from '../../../store/slice/tableStateSlice';
+import { changeEditState, changeModelState, getId, saveEditData, updateTable } from '../../../store/slice/tableStateSlice';
 
 interface DataType {
     editUrl?: string;
     deleteUrl: string;
     id: number,
-    type: string
+    type: string,
+    data: {}
 }
 
-const Action = ({ editUrl, deleteUrl, id, type }: DataType) => {
+const Action = ({ editUrl, deleteUrl, id, type, data }: DataType) => {
 
     const dispatch = useDispatch();
     const { tableUpdateNumber } = useSelector((state: any) => state.tableState);
@@ -48,6 +49,7 @@ const Action = ({ editUrl, deleteUrl, id, type }: DataType) => {
             onClick: () => {
                 dispatch(changeModelState(true));
                 dispatch(changeEditState(true));
+                dispatch(saveEditData(data));
                 dispatch(getId(id));
             }
         },

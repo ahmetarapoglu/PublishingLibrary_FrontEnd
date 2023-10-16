@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export interface DataType {
     isModalOpen: boolean,
     editState: boolean,
+    editData: {},
     id: number,
     tableUpdateNumber: number,
     search: string
@@ -12,6 +13,7 @@ export interface DataType {
 const initialState: DataType = {
     isModalOpen: false,
     editState: false,
+    editData: {},
     id: 0,
     tableUpdateNumber: 0,
     search: ""
@@ -36,9 +38,12 @@ export const TableSlice = createSlice({
         getSearchValue: (state, action) => {
             state.search = action.payload
         },
+        saveEditData: (state, action) => {
+            state.editData = action.payload
+        }
     },
 })
 
-export const { changeModelState, changeEditState, getId, updateTable, getSearchValue } = TableSlice.actions
+export const { changeModelState, changeEditState, getId, updateTable, getSearchValue, saveEditData } = TableSlice.actions
 
 export default TableSlice.reducer
