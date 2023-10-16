@@ -1,6 +1,5 @@
-import { HandleError } from "./handleError";
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkB0ZXN0LmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImp0aSI6Ijk0ZjY5M2FhLWIxODUtNDg4NS04NTEwLTk5OWNhNzEwNWMwZiIsImV4cCI6MTY5NzE2NDMzNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjM3IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMCJ9.3MAhdxUIl5L2JNU-taIVqdF1NWA5bm7Kbzlz-LdIv0U";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkB0ZXN0LmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImp0aSI6IjBhNWMyYjA2LTE5OGMtNDFkZi1iNzVlLTEyZGY2YTBkNDZhZCIsImV4cCI6MTY5NzU3MzQ5NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjM3IiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMCJ9.6EKiE1rPMAbjPilJ78ILohhL5VTJ93B8M1SFnyEKML8";
 
 const getData = async (pathUrl: string) => {
     try {
@@ -31,9 +30,6 @@ const postData = async (request: any, pathUrl: string) => {
 
         const status = response.ok;
         const data = await response.json();
-        if (data.status == 400) {
-            HandleError(data.errors);
-        }
         return { data, status };
     }
     catch (err) {

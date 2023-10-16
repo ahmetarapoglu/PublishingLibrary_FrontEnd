@@ -1,4 +1,4 @@
-import { Layout, Menu, Image } from 'antd';
+import { Layout, Image } from 'antd';
 import MenuPage from './menu';
 
 
@@ -7,6 +7,7 @@ const Sider = () => {
 
     return (
         <Sider
+            // theme="dark"
             breakpoint="lg"
             collapsedWidth="0"
             onBreakpoint={(broken) => {
@@ -16,12 +17,15 @@ const Sider = () => {
                 // console.info(collapsed, type);
             }}
         >
-            <Image
-                width={"100%"}
-                src="/images/logo2.png"
-                preview={false}
-                alt="no-image"
-            />
+            <div style={{ background: "#fff", padding: "17px", borderRight: "1px solid rgb(245, 248, 255)" }}>
+                <Image
+                    width={"100%"}
+                    src="/images/logo.png"
+                    preview={false}
+                    alt="no-image"
+                />
+            </div>
+
             <MenuPage />
         </Sider>
     );

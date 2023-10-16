@@ -1,16 +1,22 @@
 import { Dropdown, MenuProps, Space, message } from 'antd';
 import Link from 'next/link';
-import React, { useState } from 'react';
 import { FcSettings } from 'react-icons/fc';
 import { DeleteData } from '../../../service/fetchData';
+import { useDispatch, useSelector } from "react-redux";
+import { changeEditState, changeModelState, getId, updateTable } from '../../../store/slice/tableStateSlice';
 
 interface DataType {
-    editUrl: string;
+    editUrl?: string;
     deleteUrl: string;
-    id: number
+    id: number,
+    type: string
 }
 
-const Action = ({ editUrl, deleteUrl, id }: DataType) => {
+const Action = ({ editUrl, deleteUrl, id, type }: DataType) => {
+
+    const dispatch = useDispatch();
+    const { tableUpdateNumber } = useSelector((state: any) => state.tableState);
+
     const [messageApi, contextHolder] = message.useMessage();
 
     const deleteItem = async () => {
@@ -22,20 +28,28 @@ const Action = ({ editUrl, deleteUrl, id }: DataType) => {
                 duration: 1.5,
             })
             .then(() => DeleteData(id, deleteUrl))
-            .then((e) => e ? message.success('item Successfuly Deleted!', 1.5) : message.error("The operation failed", 1.5));
+            .then((e) => e ? message.success('item Successfuly Deleted!', 1.5, () => dispatch(updateTable(tableUpdateNumber + 1))
+            ) : message.error("The operation failed", 1.5));
     }
 
     const items: MenuProps['items'] = [
         {
             key: '1',
             label: (
-                <Link href={{
-                    pathname: `${editUrl}`,
-                    query: { id: id },
-                }}>
-                    Edit
-                </Link>
+                type != "model" ?
+                    <Link href={{
+                        pathname: `${editUrl}`,
+                        query: { id: id },
+                    }}>
+                        Edit
+                    </Link>
+                    : 'Edit'
             ),
+            onClick: () => {
+                dispatch(changeModelState(true));
+                dispatch(changeEditState(true));
+                dispatch(getId(id));
+            }
         },
         {
             key: '2',

@@ -60,7 +60,7 @@ const page = async () => {
 
     return (
         <div>
-            <AntdTable columns={columns} endPoint={points.GetAuthors} />
+            <AntdTable columns={columns} tableEndPoint={points.GetAuthors} />
         </div>
     );
 };

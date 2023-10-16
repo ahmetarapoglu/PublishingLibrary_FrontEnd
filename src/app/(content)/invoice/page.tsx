@@ -1,5 +1,7 @@
 "use client"
+import Action from "../../../../components/Antd/Table/action";
 import AntdTable from "../../../../components/Antd/Table/table";
+import { invoiceFields } from "../../../../constants/formFields";
 import { points } from "../../../../service/endPoints";
 import type { ColumnsType } from 'antd/es/table';
 
@@ -49,11 +51,26 @@ const columns: ColumnsType<DataType> = [
         dataIndex: ['order', 'bookCount'],
         key: 'orderTotal',
     },
+    {
+        title: 'Action',
+        key: 'action',
+        dataIndex: 'id',
+        render(value) {
+            return (
+                <Action
+                    deleteUrl={points.DeleteInvoice}
+                    id={value}
+                    type={"model"}
+                />
+            )
+        },
+    }
 ];
+
 const page = () => {
     return (
         <div>
-            <AntdTable columns={columns} endPoint={points.GetInvoices} />
+            <AntdTable columns={columns} tableEndPoint={points.GetInvoices} addEndPoind={points.CreateInvoice} getItemEndPoint={points.GetInvoice} editEndPoint={points.UpdateInvoice} formFields={invoiceFields} />
         </div>
     );
 };

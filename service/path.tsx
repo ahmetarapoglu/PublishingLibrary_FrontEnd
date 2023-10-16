@@ -4,8 +4,7 @@ export const path = {
     //Book
 
     // Category
-    "create": "category/create",
-    "edit": "category/edit",
+
     //Branch
 
     //Order

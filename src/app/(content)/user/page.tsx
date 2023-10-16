@@ -29,7 +29,7 @@ const columns: ColumnsType<DataType> = [
 const page = () => {
     return (
         <div>
-            <AntdTable columns={columns} endPoint={points.GetUsers} />
+            <AntdTable columns={columns} tableEndPoint={points.GetUsers} />
         </div>
     );
 };

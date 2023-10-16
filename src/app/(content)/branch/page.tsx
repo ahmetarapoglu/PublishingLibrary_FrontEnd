@@ -1,10 +1,18 @@
+"use client"
+import Action from "../../../../components/Antd/Table/action";
 import AntdTable from "../../../../components/Antd/Table/table";
+import { branchFields } from "../../../../constants/formFields";
 import { points } from "../../../../service/endPoints";
 import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {
     id: number;
-    categoryName: string;
+    branchName: string;
+    branchAddress: string;
+    phoneNumber: string;
+    totalAmount: string;
+    totalPayment: string;
+    remainingPayment: string;
     footer?: any
 }
 
@@ -44,6 +52,20 @@ const columns: ColumnsType<DataType> = [
         dataIndex: 'remainingPayment',
         key: 'remainingPayment',
     },
+    {
+        title: 'Action',
+        key: 'action',
+        dataIndex: 'id',
+        render(value) {
+            return (
+                <Action
+                    deleteUrl={points.DeleteBranch}
+                    id={value}
+                    type={"model"}
+                />
+            )
+        },
+    }
 
 ];
 
@@ -51,7 +73,7 @@ const page = () => {
 
     return (
         <div>
-            <AntdTable columns={columns} endPoint={points.GetBranches} />
+            <AntdTable columns={columns} tableEndPoint={points.GetBranches} addEndPoind={points.CreateBranch} getItemEndPoint={points.GetBranch} editEndPoint={points.UpdateBranch} formFields={branchFields} />
         </div>
     );
 };

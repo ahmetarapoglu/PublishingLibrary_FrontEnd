@@ -1,8 +1,10 @@
+"use client"
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from "./slice/counterStateSlice"
+import tableState from "./slice/tableStateSlice"
+
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        tableState: tableState
     },
 })

@@ -42,7 +42,7 @@ const columns: ColumnsType<DataType> = [
 const page = async () => {
     return (
         <div>
-            <AntdTable columns={columns} endPoint={points.GetBooks} />
+            <AntdTable columns={columns} tableEndPoint={points.GetBooks} />
         </div>
     );
 };
