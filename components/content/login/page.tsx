@@ -18,7 +18,7 @@ const Login = () => {
         try {
             setLoading(true)
             const response = await postData(values, points.login);
-            window.localStorage.setItem("token", response.data.token);
+            // window.localStorage.setItem("token", response.data.token);
             router.push(`/${path.books}`)
             setLoading(false)
         } catch (err) {
