@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import LayoutPage from '../../components/Layout/page'
 import { store } from '../../store';
 import { Providers } from '../../store/provider';
 import { ConfigProvider } from 'antd';
@@ -38,12 +37,9 @@ export default function RootLayout({
               },
             }}
           >
-            <LayoutPage>
-              {children}
-            </LayoutPage>
+            {children}
           </ConfigProvider>
         </Providers>
-
       </body>
     </html >
   )

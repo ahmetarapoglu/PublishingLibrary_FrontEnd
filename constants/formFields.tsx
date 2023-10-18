@@ -205,5 +205,124 @@ const authorFields = [
     },
 ]
 
+const bookFields = [
+    {
+        component: "AntdInput",
+        placeholder: "Title",
+        data: {
+            label: "Title",
+            name: "title",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Description",
+        data: {
+            label: "Description",
+            name: "description",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "PublishedDate",
+        data: {
+            label: "PublishedDate",
+            name: "publishedDate",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdSelect",
+        placeholder: "Author Name",
+        selectOption: {
+            endPointData: points.GetAuthors,
+            label: "nameSurname",
+            value: "id"
+        },
+        data: {
+            label: "Author Name",
+            name: "authorId",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Auhor Ratio",
+        data: {
+            label: "Auhor Ratio",
+            name: "auhorRatio",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Category",
+        data: {
+            label: "Category",
+            name: "categoryId",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Book Count",
+        data: {
+            label: "Book Count",
+            name: "bookCount",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Cost Price",
+        data: {
+            label: "Cost Price",
+            name: "costPrice",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Sell Price",
+        data: {
+            label: "Sell Price",
+            name: "sellPrice",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "Library Ratio",
+        data: {
+            label: "Library Ratio",
+            name: "libraryRatio",
+            rules: [{ required: true }],
+        },
+    }
+]
 
-export { categoryFields, branchFields, orderFields, invoiceFields, userFields, authorFields }
+const loginFields = [
+    {
+        component: "AntdInput",
+        placeholder: "Email or Username",
+        data: {
+            label: "Email or Username",
+            name: "userName",
+            rules: [{ required: true, type: 'email' }],
+        },
+    },
+    {
+        component: "AntdPasswordInput",
+        placeholder: "Password",
+        data: {
+            label: "Password",
+            name: "password",
+            rules: [{ required: true }],
+        },
+    },
+]
+
+
+export { categoryFields, branchFields, orderFields, invoiceFields, userFields, authorFields, bookFields, loginFields }

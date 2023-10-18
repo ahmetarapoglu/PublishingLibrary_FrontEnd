@@ -1,15 +1,16 @@
 "use client"
-import { Button, Form } from "antd";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { getData, postData } from "../../../service/fetchData";
-import { points } from "../../../service/endPoints";
-import { path } from "../../../service/path";
-import { authorFields } from "../../../constants/formFields";
-import { Components } from "../../../constants/components";
-import { useSelector } from "react-redux";
+import { Button, Form } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Components } from '../../../constants/components';
+import { bookFields } from '../../../constants/formFields';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { getData, postData } from '../../../service/fetchData';
+import { points } from '../../../service/endPoints';
+import { path } from '../../../service/path';
 
-const AuthorForm = (id: any) => {
+const BookForm = (id: any) => {
+
     const { editData, editState } = useSelector((state: any) => state.tableState);
 
     const [form] = Form.useForm();
@@ -17,30 +18,33 @@ const AuthorForm = (id: any) => {
     const router = useRouter();
 
     const onFinish = async (values: any) => {
+
         const data = {
-            nameSurname: values.nameSurname,
-            authorAddress: {
-                country: values.country,
-                city: values.city,
-                postCode: values.postCode,
+            title: values.title,
+            description: values.description,
+            publishedDate: values.publishedDate,
+            categoryId: values.categoryId,
+            bookAuthors: {
+                authorId: values.authorId,
+                auhorRatio: values.auhorRatio,
             },
-            authorBiography: {
-                email: values.email,
-                phoneNumber: values.phoneNumber,
-                nativeLanguage: values.nativeLanguage,
-                education: values.education,
+            bookVersions: {
+                bookCount: values.bookCount,
+                costPrice: values.costPrice,
+                sellPrice: values.sellPrice,
+                libraryRatio: values.libraryRatio,
             },
         }
 
         try {
             setLoading(true)
             if (editState) {
-                await postData({ ...data, id: editData.id }, points.UpdateAuthor);
+                await postData({ ...data, id: editData.id }, points.UpdateBook);
             } else {
-                await postData(data, points.CreateAuthor);
+                await postData(data, points.CreateBook);
             }
             setLoading(false)
-            router.push(`/${path.authors}`)
+            router.push(`app//${path.books}`)
         } catch (err) {
             throw new Error("message :" + err)
         }
@@ -48,11 +52,11 @@ const AuthorForm = (id: any) => {
 
     const getAuthor = async () => {
         try {
-            const response = await getData(`${points.GetAuthor}/${id.id}`);
+            const response = await getData(`${points.GetBook}/${id.id}`);
             const data = {
                 ...response.data,
-                ...response.data.authorAddress,
-                ...response.data.authorBiography,
+                ...response.data.bookAuthors,
+                ...response.data.bookVersions,
             }
             form.setFieldsValue(data);
         } catch (err) {
@@ -63,8 +67,8 @@ const AuthorForm = (id: any) => {
     useEffect(() => {
         const data = {
             ...editData,
-            ...editData.authorAddress,
-            ...editData.authorBiography,
+            ...editData.bookAuthors,
+            ...editData.bookVersions,
         }
         if (!editState && id.id) {
             getAuthor()
@@ -73,7 +77,6 @@ const AuthorForm = (id: any) => {
             editState && form.setFieldsValue(data);
         }
     }, [editState, router.refresh])
-
 
     return (
         <div>
@@ -85,7 +88,7 @@ const AuthorForm = (id: any) => {
                 style={{ maxWidth: 600 }}
                 onFinish={onFinish}
                 autoComplete="off">
-                {authorFields?.map((field: any, index: any) =>
+                {bookFields?.map((field: any, index: any) =>
                     React.createElement(Components[field.component], { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption })
                 )}
                 <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
@@ -98,4 +101,4 @@ const AuthorForm = (id: any) => {
     );
 };
 
-export default AuthorForm;
+export default BookForm;

@@ -76,7 +76,7 @@ const page = () => {
     return (
         <>
             <AddButton />
-            <AntdTable columns={columns} tableEndPoint={points.GetBranches} />
+            <AntdTable columns={columns} tableEndPoint={points.GetBranches} addEndPoind={points.CreateBranch} getItemEndPoint={points.GetBranch} editEndPoint={points.UpdateBranch} formFields={branchFields} />
         </>
     );
 };

@@ -1,12 +1,12 @@
 export const path = {
     //Author
-    authors: 'author',
+    authors: 'app/author',
     addAuthor: 'author/add-author',
     editAuthor: 'author/edit-author',
     //Book
-    books: 'books',
-    addBook: 'author/add-book',
-    editBook: 'author/edit-book'
+    books: 'app/book',
+    addBook: 'book/add-book',
+    editBook: 'book/edit-book',
     // Category
 
     //Branch
@@ -16,5 +16,6 @@ export const path = {
     //Invoice
 
     //Users
+    login: '/auth/login',
 
 }
