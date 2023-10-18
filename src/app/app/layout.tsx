@@ -9,8 +9,8 @@ export default function DashboardLayout({
     children: React.ReactNode
 }) {
     const router = useRouter()
-    const token = window?.localStorage.getItem("token")
-    if (!token) router.push(path.login)
+    // const token = window?.localStorage.getItem("token")
+    // if (!token) router.push(path.login)
     return (
         <LayoutPage>
             {children}
