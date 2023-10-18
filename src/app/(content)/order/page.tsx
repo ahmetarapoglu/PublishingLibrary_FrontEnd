@@ -1,5 +1,6 @@
 "use client"
 import Action from "../../../../components/Antd/Table/action";
+import AddButton from "../../../../components/Antd/Table/addButton";
 import AntdTable from "../../../../components/Antd/Table/table";
 import AntdTag from "../../../../components/Antd/Tag/tag";
 import { orderFields } from "../../../../constants/formFields";
@@ -74,9 +75,10 @@ const columns: ColumnsType<DataType> = [
 ];
 const page = () => {
     return (
-        <div>
+        <>
+            <AddButton />
             <AntdTable columns={columns} tableEndPoint={points.GetOrders} addEndPoind={points.CreateOrder} getItemEndPoint={points.GetOrder} editEndPoint={points.UpdateOrder} formFields={orderFields} />
-        </div>
+        </>
     );
 };
 

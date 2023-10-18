@@ -1,3 +1,6 @@
+"use client"
+import 'moment/locale/tr'
+import moment from 'moment';
 import AntdTable from '../../../../components/Antd/Table/table';
 import { points } from '../../../../service/endPoints';
 import type { ColumnsType } from 'antd/es/table';
@@ -35,6 +38,9 @@ const columns: ColumnsType<DataType> = [
         title: 'Published Date',
         dataIndex: 'publishedDate',
         key: 'publishedDate',
+        render: (value: any) => {
+            return <>{moment(value).format('L')}</>
+        }
     },
 
 ];

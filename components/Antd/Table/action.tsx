@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeEditState, changeModelState, getId, saveEditData, updateTable } from '../../../store/slice/tableStateSlice';
 
 interface DataType {
-    editUrl?: string;
+    editpath?: string;
     deleteUrl: string;
     id: number,
     type: string,
     data: {}
 }
 
-const Action = ({ editUrl, deleteUrl, id, type, data }: DataType) => {
+const Action = ({ editpath, deleteUrl, id, type, data }: DataType) => {
 
     const dispatch = useDispatch();
     const { tableUpdateNumber } = useSelector((state: any) => state.tableState);
@@ -39,7 +39,7 @@ const Action = ({ editUrl, deleteUrl, id, type, data }: DataType) => {
             label: (
                 type != "model" ?
                     <Link href={{
-                        pathname: `${editUrl}`,
+                        pathname: `${editpath}`,
                         query: { id: id },
                     }}>
                         Edit
@@ -47,7 +47,9 @@ const Action = ({ editUrl, deleteUrl, id, type, data }: DataType) => {
                     : 'Edit'
             ),
             onClick: () => {
-                dispatch(changeModelState(true));
+                if (type == "model") {
+                    dispatch(changeModelState(true));
+                }
                 dispatch(changeEditState(true));
                 dispatch(saveEditData(data));
                 dispatch(getId(id));

@@ -64,9 +64,7 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
     //-------------- Start Model ----------------//
     //-------------------------------------------//
 
-    const showModal = () => {
-        dispatch(changeModelState(true));
-    };
+
 
     const handleCancel = () => {
         dispatch(changeModelState(false));
@@ -101,9 +99,6 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
     return (
         <>
             <div>
-                <Button type="primary" onClick={showModal} style={{ width: "150px", marginBottom: "10px", float: "right" }}>
-                    Add
-                </Button>
                 <Modal
                     title="Basic Modal"
                     open={isModalOpen}

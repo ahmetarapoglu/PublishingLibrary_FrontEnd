@@ -130,5 +130,80 @@ const userFields = [
     }
 ]
 
+const authorFields = [
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "Author Name",
+            name: "nameSurname",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "Country",
+            name: "country",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "City",
+            name: "city",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "PostCode",
+            name: "postCode",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "Email",
+            name: "email",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "PhoneNumber",
+            name: "phoneNumber",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "Native Language",
+            name: "nativeLanguage",
+            rules: [{ required: true }],
+        },
+    },
+    {
+        component: "AntdInput",
+        placeholder: "",
+        data: {
+            label: "Education",
+            name: "education",
+            rules: [{ required: true }],
+        },
+    },
+]
 
-export { categoryFields, branchFields, orderFields, invoiceFields, userFields }
+
+export { categoryFields, branchFields, orderFields, invoiceFields, userFields, authorFields }

@@ -1,5 +1,6 @@
 "use client"
 import Action from "../../../../components/Antd/Table/action";
+import AddButton from "../../../../components/Antd/Table/addButton";
 import AntdTable from "../../../../components/Antd/Table/table";
 import { invoiceFields } from "../../../../constants/formFields";
 import { points } from "../../../../service/endPoints";
@@ -70,10 +71,11 @@ const columns: ColumnsType<DataType> = [
 
 const page = () => {
     return (
-        <div>
+        <>
+            <AddButton />
             <AntdTable columns={columns} tableEndPoint={points.GetInvoices} addEndPoind={points.CreateInvoice} getItemEndPoint={points.GetInvoice} editEndPoint={points.UpdateInvoice} formFields={invoiceFields} />
-        </div>
-    );
+        </>
+    )
 };
 
 export default page;

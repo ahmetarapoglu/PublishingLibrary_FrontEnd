@@ -5,6 +5,7 @@ import AntdTable from '../../../../components/Antd/Table/table';
 import Action from '../../../../components/Antd/Table/action';
 import { path } from '../../../../service/path';
 import { categoryFields } from '../../../../constants/formFields';
+import AddButton from '../../../../components/Antd/Table/addButton';
 
 interface DataType {
     id: number;
@@ -42,7 +43,10 @@ const columns: ColumnsType<DataType> = [
 
 const Page = () => {
     return (
-        <AntdTable columns={columns} tableEndPoint={points.GetCategoties} addEndPoind={points.CreateCategory} getItemEndPoint={points.GetCategory} editEndPoint={points.UpdateCategory} formFields={categoryFields} />
+        <>
+            <AddButton />
+            <AntdTable columns={columns} tableEndPoint={points.GetCategoties} addEndPoind={points.CreateCategory} getItemEndPoint={points.GetCategory} editEndPoint={points.UpdateCategory} formFields={categoryFields} />
+        </>
     );
 };
 

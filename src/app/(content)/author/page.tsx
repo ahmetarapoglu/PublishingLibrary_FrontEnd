@@ -1,10 +1,14 @@
+"use client"
+import Action from '../../../../components/Antd/Table/action';
+import AddButton from '../../../../components/Antd/Table/addButton';
 import AntdTable from '../../../../components/Antd/Table/table';
 import { points } from '../../../../service/endPoints';
 import type { ColumnsType } from 'antd/es/table';
+import { path } from '../../../../service/path';
 
 interface DataType {
     id: number;
-    categoryName: string;
+    nameSurname: string;
     footer?: any
 }
 
@@ -53,15 +57,32 @@ const columns: ColumnsType<DataType> = [
         title: 'Education',
         dataIndex: ['authorBiography', 'education'],
         key: 'education',
+    },
+    {
+        title: 'Action',
+        key: 'action',
+        dataIndex: 'id',
+        render(value, record) {
+            return (
+                <Action
+                    deleteUrl={points.DeleteAuthor}
+                    editpath={path.editAuthor}
+                    id={value}
+                    type={"form"}
+                    data={record}
+                />
+            )
+        },
     }
 ];
 
 const page = async () => {
 
     return (
-        <div>
+        <>
+            <AddButton type={"form"} addUrl={path.addAuthor} />
             <AntdTable columns={columns} tableEndPoint={points.GetAuthors} />
-        </div>
+        </>
     );
 };
 
