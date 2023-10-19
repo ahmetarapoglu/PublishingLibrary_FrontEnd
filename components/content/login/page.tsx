@@ -1,5 +1,5 @@
 "use client"
-import { Button, Form, Image } from 'antd';
+import { Button, Checkbox, Form, Image } from 'antd';
 import React, { useState } from 'react';
 import { Components } from '../../../constants/components';
 import { loginFields } from '../../../constants/formFields';
@@ -49,6 +49,13 @@ const Login = () => {
                 {loginFields?.map((field: any, index: any) =>
                     React.createElement(Components[field.component], { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption })
                 )}
+                <Form.Item
+                    name="remember"
+                    valuePropName="checked"
+                    wrapperCol={{ offset: 0, span: 24 }}
+                >
+                    <Checkbox>Remember me</Checkbox>
+                </Form.Item>
                 <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
                     <Button type="primary" htmlType="submit" loading={loading} style={{ width: "100%" }}>
                         Submit
