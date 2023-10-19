@@ -1,5 +1,9 @@
+"use client"
+import { useRouter } from "next/navigation";
 
-export default async function Home() {
+export default function Home() {
+  const router = useRouter();
+  router.push("./auth/login");
   return (
     <>landing Page</>
   )

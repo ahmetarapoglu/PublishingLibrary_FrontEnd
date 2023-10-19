@@ -1,4 +1,3 @@
-import Footer from "../../../../components/Layout/Footer/Footer";
 import Login from "../../../../components/content/login/page";
 
 const LoginPage = () => {
