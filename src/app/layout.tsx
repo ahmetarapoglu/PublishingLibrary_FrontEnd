@@ -4,6 +4,9 @@ import { Inter } from 'next/font/google'
 import { store } from '../../store';
 import { Providers } from '../../store/provider';
 import { ConfigProvider } from 'antd';
+import AuthProvider from '../../components/auth/client-provider';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from './api/auth/[...nextauth]/route';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,34 +15,39 @@ export const metadata: Metadata = {
   description: 'BookShop',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+  const session = await getServerSession(authOptions)
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers store={store}>
-          <ConfigProvider
-            theme={{
-              token: {
-                colorPrimary: '#5b3f9a',
-                borderRadius: 4,
-              },
-              components: {
-                Table: {
-                  headerBg: "#f5f8ff"
+        <AuthProvider session={session}>
+          <Providers store={store}>
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorPrimary: '#5b3f9a',
+                  borderRadius: 4,
                 },
-                Layout: {
-                  // siderBg: "#fff"
+                components: {
+                  Table: {
+                    headerBg: "#f5f8ff"
+                  },
+                  Layout: {
+                    // siderBg: "#fff"
+                  },
                 },
-              },
-            }}
-          >
-            {children}
-          </ConfigProvider>
-        </Providers>
+              }}
+            >
+              {children}
+            </ConfigProvider>
+          </Providers>
+        </AuthProvider>
       </body>
     </html >
   )

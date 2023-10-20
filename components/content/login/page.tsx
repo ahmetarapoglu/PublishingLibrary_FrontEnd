@@ -7,6 +7,8 @@ import { postData } from '../../../service/fetchData';
 import { points } from '../../../service/endPoints';
 import { useRouter } from 'next/navigation';
 import { path } from '../../../service/path';
+import { signIn } from 'next-auth/react';
+import { FallingLines } from 'react-loader-spinner';
 
 const Login = () => {
 
@@ -15,15 +17,23 @@ const Login = () => {
     const router = useRouter();
 
     const onFinish = async (values: any) => {
-        try {
-            setLoading(true)
-            const response = await postData(values, points.login);
-            // window.localStorage.setItem("token", response.data.token);
-            router.push(`/${path.books}`)
-            setLoading(false)
-        } catch (err) {
-            throw new Error("message :" + err)
-        }
+        const res = await signIn("credentials", {
+            userName: values.userName,
+            password: values.password,
+            redirect: false,
+            callbackUrl: '/'
+        });
+        // const result = await res.json();
+        console.info("resultresultresultresultresultresult", res)
+
+        // try {
+        //     setLoading(true)
+        //     await postData(values, points.login);
+        //     router.push(`/${path.books}`)
+        //     setLoading(false)
+        // } catch (err) {
+        //     throw new Error("message :" + err)
+        // }
     };
 
     return (
