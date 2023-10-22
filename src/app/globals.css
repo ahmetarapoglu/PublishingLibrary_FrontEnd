@@ -63,6 +63,7 @@ body {
   background-color: #fff2f0;
   margin-bottom: 5px;
   transition: opacity 0.5s linear;
+  padding: 3px 0;
 }
 .error .side {
   background-color: #f56853;
