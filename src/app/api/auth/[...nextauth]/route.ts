@@ -1,5 +1,6 @@
-import NextAuth from "next-auth";
+import NextAuth from "next-auth/next";
 import type { AuthOptions } from "next-auth";
+
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: AuthOptions = {
@@ -9,28 +10,30 @@ export const authOptions: AuthOptions = {
       credentials: {},
       async authorize(credentials, req) {
         if (typeof credentials !== "undefined") {
-          const data = {
-            userName: "admin@test.com",
-            password: "Admin.123",
-          };
-          process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-          const response: any = await fetch(
-            "https://localhost:5000/api/User/login",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(credentials),
+          try {
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+            const response: any = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/User/login`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(credentials),
+              }
+            );
+            const user = await response?.json();
+
+            if (typeof user !== "undefined") {
+              return {
+                ...user.user,
+                apiToken: user.token,
+              };
+            } else {
+              return null;
             }
-          );
-
-          const res = await response.json();
-          console.info("resresresresres", res);
-
-          if (typeof res !== "undefined") {
-            return { ...res.user, apiToken: res.token };
-          } else {
+          } catch (e) {
+            console.error(e);
             return null;
           }
         } else {
@@ -40,23 +43,24 @@ export const authOptions: AuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user, session }) {
+    async jwt({ token, user, session }: any) {
       if (user) {
-        // token.accessToken = user.apiToken;
+        token.accessToken = user.apiToken;
         // token.refreshToken = user.refreshToken;
-        // token.accessTokenExpires = user.accessTokenExpires;
-        // token.role = user.role;
+        token.role = user.role;
+        token.userName = user.userName;
         token.id = user.id;
       }
       return token;
     },
 
     //  The session receives the token from JWT
-    async session({ session, token, user }) {
+    async session({ session, token, user }: any) {
       return {
         ...session,
         user: {
           ...session.user,
+          userName: token.userName,
           accessToken: token.accessToken as string,
           refreshToken: token.refreshToken as string,
           role: token.role,
@@ -67,7 +71,7 @@ export const authOptions: AuthOptions = {
     },
   },
   pages: {
-    signIn: "/auth/login",
+    signIn: "/signIn",
   },
   session: { strategy: "jwt" },
   secret: process.env.NEXTAUTH_SECRET,

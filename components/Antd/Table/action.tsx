@@ -1,7 +1,7 @@
 import { Dropdown, MenuProps, Space, message } from 'antd';
 import Link from 'next/link';
 import { FcSettings } from 'react-icons/fc';
-import { DeleteData } from '../../../service/fetchData';
+import { deleteData } from '../../../service/fetchData';
 import { useDispatch, useSelector } from "react-redux";
 import { changeEditState, changeModelState, getId, saveEditData, updateTable } from '../../../store/slice/tableStateSlice';
 
@@ -28,7 +28,7 @@ const Action = ({ editpath, deleteUrl, id, type, data }: DataType) => {
                 content: 'Action in progress..',
                 duration: 1.5,
             })
-            .then(() => DeleteData(id, deleteUrl))
+            .then(() => deleteData(id, deleteUrl))
             .then((e) => e ? message.success('item Successfuly Deleted!', 1.5, () => dispatch(updateTable(tableUpdateNumber + 1))
             ) : message.error("The operation failed", 1.5));
     }

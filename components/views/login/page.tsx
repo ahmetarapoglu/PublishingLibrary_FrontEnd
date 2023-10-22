@@ -1,39 +1,34 @@
 "use client"
-import { Button, Checkbox, Form, Image } from 'antd';
+import { Button, Checkbox, Form, Image, message } from 'antd';
 import React, { useState } from 'react';
 import { Components } from '../../../constants/components';
 import { loginFields } from '../../../constants/formFields';
-import { postData } from '../../../service/fetchData';
-import { points } from '../../../service/endPoints';
 import { useRouter } from 'next/navigation';
 import { path } from '../../../service/path';
-import { signIn } from 'next-auth/react';
-import { FallingLines } from 'react-loader-spinner';
+import { signIn, useSession } from 'next-auth/react';
 
 const Login = () => {
-
     const [form] = Form.useForm();
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
-
+    const { data: session, status }: any = useSession()
     const onFinish = async (values: any) => {
+        setLoading(true)
         const res = await signIn("credentials", {
             userName: values.userName,
             password: values.password,
             redirect: false,
-            callbackUrl: '/'
+            // callbackUrl: '/app/books'
         });
-        // const result = await res.json();
-        console.info("resultresultresultresultresultresult", res)
+        setLoading(false)
 
-        // try {
-        //     setLoading(true)
-        //     await postData(values, points.login);
-        //     router.push(`/${path.books}`)
-        //     setLoading(false)
-        // } catch (err) {
-        //     throw new Error("message :" + err)
-        // }
+        if (res?.status === 401) {
+            message.error('Username or password is incorrect - please try again', 1.5)
+        }
+        if (!res?.error) {
+            message.success('Login Authenticated', 1.5)
+            router.push(`/${path.authors}`)
+        }
     };
 
     return (
@@ -55,7 +50,7 @@ const Login = () => {
                 wrapperCol={{ span: 24 }}
                 style={{ maxWidth: 800 }}
                 onFinish={onFinish}
-                autoComplete="off">
+                autoComplete="true">
                 {loginFields?.map((field: any, index: any) =>
                     React.createElement(Components[field.component], { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption })
                 )}

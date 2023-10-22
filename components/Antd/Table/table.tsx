@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeEditState, changeModelState, updateTable } from '../../../store/slice/tableStateSlice';
 import SearchInput from './search';
 import { Components } from '../../../constants/components';
+import { points } from '../../../service/endPoints';
 
 // eslint-disable-next-line @next/next/no-async-client-component
 const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editEndPoint, formFields }: any) => {
@@ -95,6 +96,7 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
 
     //---------------- End Model ----------------//
     //-------------------------------------------//
+
 
     return (
         <>
