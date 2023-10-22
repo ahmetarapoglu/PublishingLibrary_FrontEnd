@@ -8,6 +8,7 @@ import AuthProvider from '../../components/auth/client-provider';
 import { getServerSession } from "next-auth/next"
 import { authOptions } from './api/auth/[...nextauth]/route';
 import { useRouter } from 'next/navigation';
+import StyledComponentsRegistry from './registry';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,7 +46,7 @@ export default async function RootLayout({
                 },
               }}
             >
-              {children}
+              <StyledComponentsRegistry> {children}</StyledComponentsRegistry>
             </ConfigProvider>
           </Providers>
         </AuthProvider>
