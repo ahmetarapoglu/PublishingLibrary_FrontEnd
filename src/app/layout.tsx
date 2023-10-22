@@ -7,8 +7,6 @@ import { ConfigProvider } from 'antd';
 import AuthProvider from '../../components/auth/client-provider';
 import { getServerSession } from "next-auth/next"
 import { authOptions } from './api/auth/[...nextauth]/route';
-import { useRouter } from 'next/navigation';
-import StyledComponentsRegistry from './registry';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +21,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const session = await getServerSession(authOptions)
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -46,7 +45,7 @@ export default async function RootLayout({
                 },
               }}
             >
-              <StyledComponentsRegistry> {children}</StyledComponentsRegistry>
+              {children}
             </ConfigProvider>
           </Providers>
         </AuthProvider>
