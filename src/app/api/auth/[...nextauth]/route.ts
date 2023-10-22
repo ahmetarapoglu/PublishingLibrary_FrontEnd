@@ -12,8 +12,8 @@ export const authOptions: AuthOptions = {
       async authorize(credentials, req) {
         if (typeof credentials !== "undefined") {
           try {
-            const baseUrl = `${process.env.NEXTAUTH_URL}/${points.login}`;
             process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+            const baseUrl = `${process.env.NEXT_PUBLIC_API_URL}/${points.login}`;
             const response: any = await fetch(baseUrl, {
               method: "POST",
               headers: {

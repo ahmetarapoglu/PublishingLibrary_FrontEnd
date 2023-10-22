@@ -22,6 +22,14 @@ body {
   font-size: 1.4rem;
   cursor: pointer;
 }
+.login {
+  width: 320px;
+  margin: 100px auto;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 25px 32px;
+  border-radius: 5px;
+}
 .login .logo {
   display: flex;
   justify-content: center;
@@ -30,15 +38,8 @@ body {
 }
 .login .title {
   text-align: center;
-  margin: 30px;
-}
-.login {
-  width: 320px;
-  margin: 100px auto;
-  background-color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  padding: 25px 32px;
-  border-radius: 5px;
+  margin: 10px 0 5px 0;
+  color: #5b3f9a;
 }
 .footer {
   position: absolute;
@@ -53,4 +54,34 @@ body {
   color: #999;
   text-align: center;
   margin-bottom: 16px;
+}
+.error {
+  height: 45px;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 4px;
+  position: relative;
+  background-color: #fff2f0;
+  margin-bottom: 5px;
+  transition: opacity 0.5s linear;
+}
+.error .side {
+  background-color: #f56853;
+  width: 6px;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+  position: absolute;
+  left: 0px;
+  top: 0;
+}
+.error .title-text {
+  margin: 0;
+  font-size: 0.9rem;
+  padding: 4px 0 4px 12px;
+  color: #555;
+}
+.error .description {
+  margin: 0;
+  padding: 0px 0 2px 12px;
+  font-size: 0.8rem;
+  color: #555;
 }

@@ -307,6 +307,7 @@ const loginFields = [
     {
         component: "AntdInput",
         placeholder: "Email or Username",
+        disabled: false,
         data: {
             label: "Email or Username",
             name: "userName",
@@ -316,6 +317,7 @@ const loginFields = [
     {
         component: "AntdPasswordInput",
         placeholder: "Password",
+        disabled: false,
         data: {
             label: "Password",
             name: "password",

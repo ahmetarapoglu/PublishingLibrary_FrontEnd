@@ -26,7 +26,7 @@ const MenuPage = () => {
             onClick={({ keyPath }) => router.push(`/${keyPath}`)}
             items={[
                 {
-                    key: 'dashboard',
+                    key: 'app/dashboard',
                     icon: <AiFillHome />,
                     label: 'Dashboard',
                 },

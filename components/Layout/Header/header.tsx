@@ -8,7 +8,7 @@ import { PiSignOutBold } from "react-icons/pi";
 const Header = () => {
     const items: MenuProps['items'] = [
         {
-            label: "sign Out",
+            label: "Log out",
             key: '0',
             icon: <PiSignOutBold style={{ fontSize: "17px" }} />,
             onClick: async () => {
