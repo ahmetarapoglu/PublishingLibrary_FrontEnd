@@ -1,4 +1,4 @@
-import AuthorForm from "../../../../../components/content/author/page";
+import AuthorForm from "../../../../../components/views/author/page";
 
 const AddAuthor = () => {
 

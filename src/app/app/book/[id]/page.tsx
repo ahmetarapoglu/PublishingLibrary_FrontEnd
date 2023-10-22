@@ -1,4 +1,4 @@
-import BookForm from '../../../../../components/content/book/page';
+import BookForm from "../../../../../components/views/book/page";
 
 const EditBook = ({ searchParams }: any) => {
     return (
