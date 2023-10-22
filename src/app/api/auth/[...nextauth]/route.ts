@@ -2,6 +2,7 @@ import NextAuth from "next-auth/next";
 import type { AuthOptions } from "next-auth";
 
 import CredentialsProvider from "next-auth/providers/credentials";
+import { points } from "../../../../../service/endPoints";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -11,17 +12,15 @@ export const authOptions: AuthOptions = {
       async authorize(credentials, req) {
         if (typeof credentials !== "undefined") {
           try {
+            const baseUrl = `${process.env.NEXT_PUBLIC_API_URL}/${points.login}`;
             process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-            const response: any = await fetch(
-              `${process.env.NEXT_PUBLIC_API_URL}/User/login`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(credentials),
-              }
-            );
+            const response: any = await fetch(baseUrl, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(credentials),
+            });
             const user = await response?.json();
 
             if (typeof user !== "undefined") {
