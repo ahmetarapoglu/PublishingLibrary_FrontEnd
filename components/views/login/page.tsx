@@ -27,6 +27,7 @@ const Login = () => {
         setLoading(false)
         setDisabled(false)
         setError(res?.status)
+        console.info("ressssss", res)
         if (!res?.error) {
             message.success('Login Authenticated', 1.5)
             router.push(`/${path.authors}`)

@@ -11,10 +11,12 @@ export default function DashboardLayout({
 }) {
     const router = useRouter()
     const { data: session } = useSession();
+
     if (session == null) {
         router.push(path.login)
         return
     }
+
     return (
         <LayoutPage>
             {children}
