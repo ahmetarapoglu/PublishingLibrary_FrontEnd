@@ -7,6 +7,7 @@ import type { ColumnsType } from 'antd/es/table';
 import Action from '../../../../components/Antd/Table/action';
 import { path } from '../../../../service/path';
 import AddButton from '../../../../components/Antd/Table/addButton';
+import { localeMoment } from '../../../../service/moment';
 
 interface DataType {
     id: number;
@@ -42,7 +43,7 @@ const columns: ColumnsType<DataType> = [
         dataIndex: 'publishedDate',
         key: 'publishedDate',
         render: (value: any) => {
-            return <>{moment(value).format('L')}</>
+            return <>{localeMoment(value)}</>
         }
     },
     {

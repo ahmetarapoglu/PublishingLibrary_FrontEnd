@@ -1,3 +1,5 @@
+import AntdDatePicker from "../components/Antd/DatePicker/datePicker";
+import FormList from "../components/Antd/FormList/formList";
 import AntdInput from "../components/Antd/Input/input";
 import NumericInput from "../components/Antd/Input/numericInput ";
 import AntdPasswordInput from "../components/Antd/Input/passwordInput";
@@ -7,5 +9,7 @@ export const Components: any = {
     AntdInput: AntdInput,
     AntdPasswordInput: AntdPasswordInput,
     NumericInput: NumericInput,
-    AntdSelect: AntdSelect
+    AntdSelect: AntdSelect,
+    FormList: FormList,
+    AntdDatePicker: AntdDatePicker
 };

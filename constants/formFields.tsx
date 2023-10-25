@@ -225,7 +225,7 @@ const bookFields = [
         },
     },
     {
-        component: "AntdInput",
+        component: "AntdDatePicker",
         placeholder: "PublishedDate",
         data: {
             label: "PublishedDate",
@@ -234,35 +234,20 @@ const bookFields = [
         },
     },
     {
+        component: "FormList",
+    },
+    {
         component: "AntdSelect",
-        placeholder: "Author Name",
+        placeholder: "Category",
         selectOption: {
-            endPointData: points.GetAuthors,
-            label: "nameSurname",
+            endPointData: points.GetCategoties,
+            label: "categoryName",
             value: "id"
         },
         data: {
-            label: "Author Name",
-            name: "authorId",
-            rules: [{ required: true }],
-        },
-    },
-    {
-        component: "AntdInput",
-        placeholder: "Auhor Ratio",
-        data: {
-            label: "Auhor Ratio",
-            name: "auhorRatio",
-            rules: [{ required: true }],
-        },
-    },
-    {
-        component: "AntdInput",
-        placeholder: "Category",
-        data: {
             label: "Category",
             name: "categoryId",
-            rules: [{ required: true }],
+            rules: [{ required: false }],
         },
     },
     {

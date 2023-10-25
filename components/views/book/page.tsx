@@ -3,31 +3,29 @@ import { Button, Form } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Components } from '../../../constants/components';
 import { bookFields } from '../../../constants/formFields';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { getData, postData } from '../../../service/fetchData';
 import { points } from '../../../service/endPoints';
-import { path } from '../../../service/path';
+import moment from 'moment';
 
 const BookForm = (id: any) => {
 
     const { editData, editState } = useSelector((state: any) => state.tableState);
-
-    const [form] = Form.useForm();
     const [loading, setLoading] = useState<boolean>(false);
+    const [form] = Form.useForm();
     const router = useRouter();
+    const [value, setValue] = useState()
+    const dispatch = useDispatch()
 
     const onFinish = async (values: any) => {
-
+        console.info("values", values)
         const data = {
             title: values.title,
             description: values.description,
             publishedDate: values.publishedDate,
-            categoryId: values.categoryId,
-            bookAuthors: {
-                authorId: values.authorId,
-                auhorRatio: values.auhorRatio,
-            },
+            categoryId: value,
+            bookAuthors: values.bookAuthors,
             bookVersions: {
                 bookCount: values.bookCount,
                 costPrice: values.costPrice,
@@ -44,21 +42,23 @@ const BookForm = (id: any) => {
                 await postData(data, points.CreateBook);
             }
             setLoading(false)
-            router.push(`app//${path.books}`)
+            // router.push(`/`)
         } catch (err) {
             throw new Error("message :" + err)
         }
     };
 
-    const getAuthor = async () => {
+    const getBook = async () => {
         try {
             const response = await getData(`${points.GetBook}/${id.id}`);
             const data = {
                 ...response.data,
+                publishedDate: moment(response.data.publishedDate),
                 ...response.data.bookAuthors,
                 ...response.data.bookVersions,
             }
             form.setFieldsValue(data);
+
         } catch (err) {
             throw new Error("message :" + err)
         }
@@ -67,11 +67,12 @@ const BookForm = (id: any) => {
     useEffect(() => {
         const data = {
             ...editData,
+            publishedDate: moment(editData.publishedDate),
             ...editData.bookAuthors,
             ...editData.bookVersions,
         }
         if (!editState && id.id) {
-            getAuthor()
+            getBook()
         }
         else {
             editState && form.setFieldsValue(data);
@@ -79,7 +80,7 @@ const BookForm = (id: any) => {
     }, [editState, router.refresh])
 
     return (
-        <div>
+        <div className="book">
             <Form
                 name="basic"
                 form={form}
@@ -89,7 +90,10 @@ const BookForm = (id: any) => {
                 onFinish={onFinish}
                 autoComplete="off">
                 {bookFields?.map((field: any, index: any) =>
-                    React.createElement(Components[field.component], { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption })
+                    React.createElement(
+                        Components[field.component],
+                        { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption, value: value, setValue: setValue }
+                    )
                 )}
                 <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
                     <Button type="primary" htmlType="submit" loading={loading}>

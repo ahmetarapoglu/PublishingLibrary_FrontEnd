@@ -1,12 +1,12 @@
 "use client"
 import { configureStore } from '@reduxjs/toolkit'
 import tableState from "./slice/tableStateSlice"
-import userStateSlice from './slice/userStateSlice'
+import selectStateSlice from './slice/selectStateSlice'
 
 
 export const store = configureStore({
     reducer: {
         tableState: tableState,
-        UserState: userStateSlice
+        selectState: selectStateSlice
     },
 })

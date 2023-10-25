@@ -4,6 +4,7 @@ import { FcSettings } from 'react-icons/fc';
 import { deleteData } from '../../../service/fetchData';
 import { useDispatch, useSelector } from "react-redux";
 import { changeEditState, changeModelState, getId, saveEditData, updateTable } from '../../../store/slice/tableStateSlice';
+import AntdPopconfirm from '../Popconfirm/popconfirm';
 
 interface DataType {
     editpath?: string;
@@ -57,9 +58,9 @@ const Action = ({ editpath, deleteUrl, id, type, data }: DataType) => {
         },
         {
             key: '2',
-            danger: true,
-            label: 'Delete',
-            onClick: deleteItem
+            danger: false,
+            label: <AntdPopconfirm />,
+            // onClick: deleteItem
         },
     ];
 

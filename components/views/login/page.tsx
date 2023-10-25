@@ -1,5 +1,5 @@
 "use client"
-import { Button, Checkbox, Form, Image, message } from 'antd';
+import { Button, Checkbox, Form, Image, message, notification } from 'antd';
 import React, { useState } from 'react';
 import { Components } from '../../../constants/components';
 import { loginFields } from '../../../constants/formFields';
@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { path } from '../../../service/path';
 import { signIn, useSession } from 'next-auth/react';
 import Error from '../../service/error';
+type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 const Login = () => {
     const [form] = Form.useForm();
@@ -14,7 +15,17 @@ const Login = () => {
     const [error, setError] = useState<any>()
     const router = useRouter();
     const [disabled, setDisabled] = useState<boolean>(false);
-    const { data: session, status }: any = useSession()
+    const [api, contextHolder] = notification.useNotification();
+    const { data: session } = useSession();
+
+    const openNotificationWithIcon = (type: NotificationType) => {
+        api[type]({
+            message: 'Login Authenticated',
+            description:
+                'Hello,You are welcome',
+        });
+    };
+
     const onFinish = async (values: any) => {
         setLoading(true)
         setDisabled(true)
@@ -27,15 +38,16 @@ const Login = () => {
         setLoading(false)
         setDisabled(false)
         setError(res?.status)
-        console.info("ressssss", res)
+
         if (!res?.error) {
-            message.success('Login Authenticated', 1.5)
+            openNotificationWithIcon("success")
             router.push(`/${path.authors}`)
         }
     };
 
     return (
         <div className='login'>
+            {contextHolder}
             <div className="logo">
                 <Image
                     width={"50%"}

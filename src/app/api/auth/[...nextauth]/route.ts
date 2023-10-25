@@ -12,7 +12,7 @@ export const authOptions: AuthOptions = {
       async authorize(credentials, req) {
         if (typeof credentials !== "undefined") {
           try {
-            // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
             const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/${points.login}`;
             const response: any = await fetch(baseUrl, {
               method: "POST",
@@ -73,7 +73,7 @@ export const authOptions: AuthOptions = {
     signIn: "/signIn",
   },
   session: { strategy: "jwt" },
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+  secret: process.env.CRON_SECRET,
 };
 
 const handler = NextAuth(authOptions);

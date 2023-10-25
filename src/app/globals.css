@@ -86,3 +86,15 @@ body {
   font-size: 0.8rem;
   color: #555;
 }
+.author,
+.book {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  max-width: 720px;
+  margin: auto;
+  padding: 50px;
+  border-radius: 4px;
+}
+.author .ant-form-item,
+.book .ant-form-item {
+  margin-bottom: 8px;
+}

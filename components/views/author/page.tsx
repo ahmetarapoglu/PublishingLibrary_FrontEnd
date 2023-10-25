@@ -76,9 +76,10 @@ const AuthorForm = (id: any) => {
 
 
     return (
-        <div>
+        <div className="author">
             <Form
                 name="basic"
+                // layout="vertical"
                 form={form}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 17 }}

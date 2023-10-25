@@ -41,6 +41,9 @@ export default async function RootLayout({
                     // siderBg: "#fff"
                   },
                   Dropdown: {
+                  },
+                  Notification: {
+                    // colorSuccess: "#5b3f9a"
                   }
                 },
               }}
