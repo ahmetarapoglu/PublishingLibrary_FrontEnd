@@ -5,7 +5,7 @@ import { postData } from '../../../service/fetchData';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { changeEditState, changeModelState, updateTable } from '../../../store/slice/tableStateSlice';
-import SearchInput from './search';
+import SearchInput from '../Input/search';
 import { Components } from '../../../constants/components';
 
 // eslint-disable-next-line @next/next/no-async-client-component
