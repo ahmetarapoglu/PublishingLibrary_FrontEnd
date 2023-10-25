@@ -73,7 +73,7 @@ export const authOptions: AuthOptions = {
     signIn: "/signIn",
   },
   session: { strategy: "jwt" },
-  secret: process.env.CRON_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
