@@ -1,10 +1,10 @@
 import { Dropdown, MenuProps, Space, message } from 'antd';
 import Link from 'next/link';
 import { FcSettings } from 'react-icons/fc';
-import { deleteData } from '../../../service/fetchData';
-import { useDispatch, useSelector } from "react-redux";
-import { changeEditState, changeModelState, getId, saveEditData, updateTable } from '../../../store/slice/tableStateSlice';
+import { useDispatch } from "react-redux";
+import { changeEditState, changeModelState, getId, saveEditData } from '../../../store/slice/tableStateSlice';
 import AntdPopconfirm from '../Popconfirm/popconfirm';
+import { AiFillDelete, AiFillEdit, AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 
 interface DataType {
     editpath?: string;
@@ -17,26 +17,10 @@ interface DataType {
 const Action = ({ editpath, deleteUrl, id, type, data }: DataType) => {
 
     const dispatch = useDispatch();
-    const { tableUpdateNumber } = useSelector((state: any) => state.tableState);
-
-    const [messageApi, contextHolder] = message.useMessage();
-
-    const deleteItem = async () => {
-
-        messageApi
-            .open({
-                type: 'loading',
-                content: 'Action in progress..',
-                duration: 1.5,
-            })
-            .then(() => deleteData(id, deleteUrl))
-            .then((e) => e ? message.success('item Successfuly Deleted!', 1.5, () => dispatch(updateTable(tableUpdateNumber + 1))
-            ) : message.error("The operation failed", 1.5));
-    }
-
     const items: MenuProps['items'] = [
         {
             key: '1',
+            icon: <AiOutlineEdit style={{ fontSize: "1.1rem" }} />,
             label: (
                 type != "model" ?
                     <Link href={{
@@ -58,15 +42,14 @@ const Action = ({ editpath, deleteUrl, id, type, data }: DataType) => {
         },
         {
             key: '2',
-            danger: false,
-            label: <AntdPopconfirm />,
-            // onClick: deleteItem
+            icon: <AiOutlineDelete style={{ fontSize: "1.1rem" }} />,
+            danger: true,
+            label: <AntdPopconfirm deleteUrl={deleteUrl} id={id} />,
         },
     ];
 
     return (
         <div className='action'>
-            {contextHolder}
             <Dropdown menu={{ items }}>
                 <Space>
                     <FcSettings />

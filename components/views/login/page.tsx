@@ -5,7 +5,7 @@ import { Components } from '../../../constants/components';
 import { loginFields } from '../../../constants/formFields';
 import { useRouter } from 'next/navigation';
 import { path } from '../../../service/path';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import Error from '../../service/error';
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
@@ -16,7 +16,6 @@ const Login = () => {
     const router = useRouter();
     const [disabled, setDisabled] = useState<boolean>(false);
     const [api, contextHolder] = notification.useNotification();
-    const { data: session } = useSession();
 
     const openNotificationWithIcon = (type: NotificationType) => {
         api[type]({
@@ -45,6 +44,7 @@ const Login = () => {
         }
     };
 
+    console.info("error", error)
     return (
         <div className='login'>
             {contextHolder}

@@ -58,19 +58,33 @@ const orderFields = [
         }
     },
     {
-        component: "AntdSelect",
-        placeholder: "Select Book Version",
+        component: "CoordinateSelect",
+        placeholder: "Select Version",
         data: {
-            label: "Book Version",
+            label: "Version",
             name: "bookVersionId",
             rules: [{ required: true }],
         },
         selectOption: {
             endPointData: points.GetBooks,
-            label: "title",
+            label: "number",
             value: "id"
         }
     },
+    // {
+    //     component: "AntdSelect",
+    //     placeholder: "Select Version",
+    //     data: {
+    //         label: "Version",
+    //         name: "bookVersionId",
+    //         rules: [{ required: true }],
+    //     },
+    //     selectOption: {
+    //         endPointData: points.GetVersions,
+    //         label: "number",
+    //         value: "id"
+    //     }
+    // },
     {
         component: "AntdInput",
         placeholder: "Type Your Book Counter",
@@ -250,6 +264,45 @@ const bookFields = [
             rules: [{ required: false }],
         },
     },
+    // {
+    //     component: "AntdInput",
+    //     placeholder: "Book Count",
+    //     data: {
+    //         label: "Book Count",
+    //         name: "bookCount",
+    //         rules: [{ required: true }],
+    //     },
+    // },
+    // {
+    //     component: "AntdInput",
+    //     placeholder: "Cost Price",
+    //     data: {
+    //         label: "Cost Price",
+    //         name: "costPrice",
+    //         rules: [{ required: true }],
+    //     },
+    // },
+    // {
+    //     component: "AntdInput",
+    //     placeholder: "Sell Price",
+    //     data: {
+    //         label: "Sell Price",
+    //         name: "sellPrice",
+    //         rules: [{ required: true }],
+    //     },
+    // },
+    // {
+    //     component: "AntdInput",
+    //     placeholder: "Library Ratio",
+    //     data: {
+    //         label: "Library Ratio",
+    //         name: "libraryRatio",
+    //         rules: [{ required: true }],
+    //     },
+    // }
+]
+
+const versionBookFields = [
     {
         component: "AntdInput",
         placeholder: "Book Count",
@@ -312,4 +365,4 @@ const loginFields = [
 ]
 
 
-export { categoryFields, branchFields, orderFields, invoiceFields, userFields, authorFields, bookFields, loginFields }
+export { categoryFields, branchFields, orderFields, invoiceFields, userFields, authorFields, bookFields, loginFields, versionBookFields }

@@ -8,8 +8,7 @@ import { changeEditState, changeModelState, updateTable } from '../../../store/s
 import SearchInput from '../Input/search';
 import { Components } from '../../../constants/components';
 
-// eslint-disable-next-line @next/next/no-async-client-component
-const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editEndPoint, formFields }: any) => {
+const AntdTable = ({ searchParams, columns, tableEndPoint, addEndPoind, getItemEndPoint, editEndPoint, formFields }: any) => {
 
     const dispatch = useDispatch();
     const { isModalOpen, editState, id, tableUpdateNumber, search, editData } = useSelector((state: any) => state.tableState);
@@ -17,7 +16,8 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
     const [pagination, setPagination] = useState({
         "current": 1,
         "pageSize": 10,
-        "search": search
+        "search": search,
+        "BookId": searchParams
     });
     const [dataSource, setDataSource] = useState([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -40,6 +40,7 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
             throw new Error("message :" + err)
         }
     }
+
     const handleTableChange = (
         pagination: TablePaginationConfig,
     ) => {
@@ -54,7 +55,8 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
         setPagination({
             "current": 1,
             "pageSize": 10,
-            "search": search
+            "search": search,
+            "BookId": searchParams
         })
     }, [search])
 
@@ -79,12 +81,14 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
                 const data = { ...values, id }
                 await postData(data, editEndPoint)
             } else {
-                await postData(values, addEndPoind)
+                const data = searchParams ? { ...values, bookId: searchParams } : { ...values }
+                await postData(data, addEndPoind)
             }
             dispatch(updateTable(tableUpdateNumber + 1))
             setPostLoading(false)
             handleCancel();
         } catch (err) {
+            setPostLoading(false)
             throw new Error("message :" + err)
         }
     };
@@ -148,7 +152,9 @@ const AntdTable = ({ columns, tableEndPoint, addEndPoind, getItemEndPoint, editE
                 loading={loading}
                 pagination={{
                     ...pagination, total, onChange(page, pageSize) {
-                        setPagination({ current: page, pageSize: pageSize, search: search })
+                        setPagination({
+                            current: page, pageSize: pageSize, search: search, BookId: searchParams
+                        })
                     },
                     showSizeChanger: true,
                     showQuickJumper: true,

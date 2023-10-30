@@ -37,12 +37,13 @@ const AuthorForm = (id: any) => {
             if (editState) {
                 await postData({ ...data, id: editData.id }, points.UpdateAuthor);
             } else {
-                await postData(data, points.CreateAuthor);
+                const res = await postData(data, points.CreateAuthor);
+                console.info("res res", res)
             }
             setLoading(false)
-            router.push(`/${path.authors}`)
+            // router.push(`/${path.authors}`)
         } catch (err) {
-            throw new Error("message :" + err)
+            throw new Error("messageddddd :" + err)
         }
     };
 

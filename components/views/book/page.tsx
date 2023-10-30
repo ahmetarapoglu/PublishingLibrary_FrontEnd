@@ -3,7 +3,7 @@ import { Button, Form } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Components } from '../../../constants/components';
 import { bookFields } from '../../../constants/formFields';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { getData, postData } from '../../../service/fetchData';
 import { points } from '../../../service/endPoints';
@@ -15,16 +15,13 @@ const BookForm = (id: any) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [form] = Form.useForm();
     const router = useRouter();
-    const [value, setValue] = useState()
-    const dispatch = useDispatch()
 
     const onFinish = async (values: any) => {
-        console.info("values", values)
         const data = {
             title: values.title,
             description: values.description,
             publishedDate: values.publishedDate,
-            categoryId: value,
+            categoryId: values.categoryId,
             bookAuthors: values.bookAuthors,
             bookVersions: {
                 bookCount: values.bookCount,
@@ -55,7 +52,6 @@ const BookForm = (id: any) => {
                 ...response.data,
                 publishedDate: moment(response.data.publishedDate),
                 ...response.data.bookAuthors,
-                ...response.data.bookVersions,
             }
             form.setFieldsValue(data);
 
@@ -69,7 +65,6 @@ const BookForm = (id: any) => {
             ...editData,
             publishedDate: moment(editData.publishedDate),
             ...editData.bookAuthors,
-            ...editData.bookVersions,
         }
         if (!editState && id.id) {
             getBook()
@@ -92,7 +87,7 @@ const BookForm = (id: any) => {
                 {bookFields?.map((field: any, index: any) =>
                     React.createElement(
                         Components[field.component],
-                        { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption, value: value, setValue: setValue }
+                        { placeholder: field.placeholder, type: field.type, ...field.data, selectOption: field.selectOption }
                     )
                 )}
                 <Form.Item wrapperCol={{ offset: 6, span: 18 }}>

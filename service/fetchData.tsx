@@ -1,4 +1,6 @@
 import { GetToken } from "./getToken";
+import { HandleError } from "./handleError";
+
 
 const getData = async (pathUrl: string) => {
     const token = await GetToken()
@@ -28,6 +30,15 @@ const postData = async (request: any, pathUrl: string) => {
             headers: { 'Content-Type': 'application/json;charset=utf-8', 'Authorization': `Bearer ${token}` },
             body: JSON.stringify(request)
         })
+        if (response.status != 200) {
+            if (response.status == 401) {
+                HandleError(response)
+            }
+            else if (response.status == 400) {
+                const data = await response.json();
+                HandleError(data)
+            }
+        }
         const status = response.ok;
         const data = await response.json();
         return { data, status };

@@ -11,7 +11,12 @@ export const points = {
     "CreateBook": "api/Book/CreateBook",
     "UpdateBook": "api/Book/UpdateBook",
     "DeleteBook": "api/Book/DeleteBook",
-    "CreateVersion": "api/Book/CreateVersion",
+    //Book Version
+    "GetVersions": "api/Version/GetVersions",
+    "GetVersion": "api/Version/GetVersion",
+    "CreateVersion": "api/Version/CreateVersion",
+    "UpdateVersion": "api/Version/UpdateVersion",
+    "DeleteVersion": "api/Version/DeleteVersion",
     // Category
     "GetCategoties": "api/Category/GetCategories",
     "GetCategory": "api/Category/GetCategory",

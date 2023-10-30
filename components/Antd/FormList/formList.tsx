@@ -1,8 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row, Typography } from 'antd';
-import CustomSelect from '../Select/customSelect';
 import { points } from '../../../service/endPoints';
-import { useState } from 'react';
+import AntdSelect from '../Select/select';
 
 const selectOption = {
     endPointData: points.GetAuthors,
@@ -10,7 +9,6 @@ const selectOption = {
     value: "id"
 }
 const FormList = () => {
-    const [value, setValue] = useState();
     return (
         <Form.List name="bookAuthors" >
             {(fields, { add, remove }) => (
@@ -31,6 +29,7 @@ const FormList = () => {
                     {fields.map(({ key, name, ...restField }) => (
                         <Row key={key} style={{ marginBottom: 8 }}>
                             <Col span={6}></Col>
+
                             <Col span={10}>
                                 <Form.Item
                                     {...restField}
@@ -38,9 +37,10 @@ const FormList = () => {
                                     rules={[{ required: false, message: 'Missing first name' }]}
                                     style={{ margin: '0px' }}
                                 >
-                                    <CustomSelect placeholder="Auhor Name" selectOption={selectOption} setValue={setValue} value={value} />
+                                    <AntdSelect name={[name, 'authorId']} placeholder="Auhor Name" selectOption={selectOption} />
                                 </Form.Item>
                             </Col>
+
                             <Col span={4}>
                                 <Form.Item
                                     {...restField}
@@ -51,11 +51,13 @@ const FormList = () => {
                                     <Input type='number' placeholder="Auhor Ratio" style={{ width: '100%' }} />
                                 </Form.Item>
                             </Col>
+
                             <Col span={4}>
                                 <Form.Item {...restField} style={{ margin: '0px' }}>
                                     <Button onClick={() => remove(name)}>Delete</Button>
                                 </Form.Item>
                             </Col>
+
                         </Row>
                     ))}
 
