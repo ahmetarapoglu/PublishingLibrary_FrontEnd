@@ -123,3 +123,17 @@ body {
     font-size: 9px;
   }
 }
+.not-invoiced {
+  color: #1677ff;
+  transition: all 0.3s ease;
+  font-size: 1.4rem;
+  cursor: pointer;
+  &:hover {
+    color: #2f82f7dc;
+  }
+}
+.is-invoiced {
+  pointer-events: none;
+  font-size: 1.4rem;
+  opacity: 0.5;
+}

@@ -84,7 +84,7 @@ const AntdTable = ({ searchParams, columns, tableEndPoint, addEndPoind, getItemE
                 const data = searchParams ? { ...values, bookId: searchParams } : { ...values }
                 await postData(data, addEndPoind)
             }
-            dispatch(updateTable(tableUpdateNumber + 1))
+            dispatch(updateTable())
             setPostLoading(false)
             handleCancel();
         } catch (err) {

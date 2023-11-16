@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { getData, postData } from '../../../service/fetchData';
 import { points } from '../../../service/endPoints';
 import moment from 'moment';
+import { path } from '../../../service/path';
 
 const BookForm = (id: any) => {
 
@@ -39,10 +40,11 @@ const BookForm = (id: any) => {
                 await postData(data, points.CreateBook);
             }
             setLoading(false)
-            // router.push(`/`)
+            router.push(`/${path.books}`)
         } catch (err) {
             throw new Error("message :" + err)
         }
+
     };
 
     const getBook = async () => {

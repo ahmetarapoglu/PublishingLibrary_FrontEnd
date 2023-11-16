@@ -11,7 +11,7 @@ interface DataType {
     deleteUrl: string;
     id: number,
     type: string,
-    data: {}
+    data: any
 }
 
 const Action = ({ editpath, deleteUrl, id, type, data }: DataType) => {

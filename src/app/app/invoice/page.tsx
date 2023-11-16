@@ -72,7 +72,7 @@ const columns: ColumnsType<DataType> = [
 const page = () => {
     return (
         <>
-            <AddButton />
+            {/* <AddButton /> */}
             <AntdTable columns={columns} tableEndPoint={points.GetInvoices} addEndPoind={points.CreateInvoice} getItemEndPoint={points.GetInvoice} editEndPoint={points.UpdateInvoice} formFields={invoiceFields} />
         </>
     )

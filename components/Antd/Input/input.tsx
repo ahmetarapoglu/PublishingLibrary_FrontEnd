@@ -6,9 +6,9 @@ interface DataType {
     disabled?: boolean;
     rules?:
     [{ required: boolean }];
-    type: string
+    type?: string
 }
-const AntdInput = ({ label = "", name = "", rules = [{ required: true }], placeholder = "", disabled, type }: DataType) => {
+const AntdInput = ({ label = "", name = "", rules = [{ required: true }], placeholder = "", disabled = false, type = "" }: DataType) => {
     return (
         <Form.Item
             label={label}

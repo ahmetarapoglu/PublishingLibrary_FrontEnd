@@ -41,7 +41,7 @@ const AuthorForm = (id: any) => {
                 console.info("res res", res)
             }
             setLoading(false)
-            // router.push(`/${path.authors}`)
+            router.push(`/${path.authors}`)
         } catch (err) {
             throw new Error("messageddddd :" + err)
         }

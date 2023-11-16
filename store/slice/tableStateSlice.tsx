@@ -32,8 +32,8 @@ export const TableSlice = createSlice({
         getId: (state, action) => {
             state.id = action.payload
         },
-        updateTable: (state, action) => {
-            state.tableUpdateNumber = action.payload
+        updateTable: (state) => {
+            state.tableUpdateNumber = state.tableUpdateNumber + 1
         },
         getSearchValue: (state, action) => {
             state.search = action.payload

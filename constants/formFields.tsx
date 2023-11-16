@@ -71,20 +71,6 @@ const orderFields = [
             value: "id"
         }
     },
-    // {
-    //     component: "AntdSelect",
-    //     placeholder: "Select Version",
-    //     data: {
-    //         label: "Version",
-    //         name: "bookVersionId",
-    //         rules: [{ required: true }],
-    //     },
-    //     selectOption: {
-    //         endPointData: points.GetVersions,
-    //         label: "number",
-    //         value: "id"
-    //     }
-    // },
     {
         component: "AntdInput",
         placeholder: "Type Your Book Counter",
@@ -98,19 +84,28 @@ const orderFields = [
 
 const invoiceFields = [
     {
-        component: "AntdSelect",
-        placeholder: "Select Order",
+        component: "CoordinateSelect",
+        placeholder: "Select Version",
         data: {
-            label: "Order",
-            name: "orderId",
+            label: "Version",
+            name: "bookVersionId",
             rules: [{ required: true }],
         },
         selectOption: {
-            endPointData: points.GetOrders,
-            label: "isInvoiced",
+            endPointData: points.GetBooks,
+            label: "number",
             value: "id"
         }
     },
+    {
+        component: "AntdInput",
+        placeholder: "Type Your Book Counter",
+        data: {
+            label: "Book Counter",
+            name: "bookCount",
+            rules: [{ required: true }],
+        }
+    }
 ]
 
 const userFields = [
@@ -264,42 +259,6 @@ const bookFields = [
             rules: [{ required: false }],
         },
     },
-    // {
-    //     component: "AntdInput",
-    //     placeholder: "Book Count",
-    //     data: {
-    //         label: "Book Count",
-    //         name: "bookCount",
-    //         rules: [{ required: true }],
-    //     },
-    // },
-    // {
-    //     component: "AntdInput",
-    //     placeholder: "Cost Price",
-    //     data: {
-    //         label: "Cost Price",
-    //         name: "costPrice",
-    //         rules: [{ required: true }],
-    //     },
-    // },
-    // {
-    //     component: "AntdInput",
-    //     placeholder: "Sell Price",
-    //     data: {
-    //         label: "Sell Price",
-    //         name: "sellPrice",
-    //         rules: [{ required: true }],
-    //     },
-    // },
-    // {
-    //     component: "AntdInput",
-    //     placeholder: "Library Ratio",
-    //     data: {
-    //         label: "Library Ratio",
-    //         name: "libraryRatio",
-    //         rules: [{ required: true }],
-    //     },
-    // }
 ]
 
 const versionBookFields = [
