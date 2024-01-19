@@ -42,12 +42,13 @@ export const points = {
     "UpdateInvoice": "api/Invoice/UpdateInvoice",
     "DeleteInvoice": "api/Invoice/DeleteInvoice",
     //Users
-    "login": "api/User/login",
     "AddUser": "api/User/AddUser",
     "GetUsers": "api/User/GetUsers",
     "GetUser": "api/User/GetUser",
     "GetUserProfile": "api/User/GetUserProfile",
     "UpdateUser": "api/User/UpdateUser",
     "DeleteUser": "api/User/DeleteUser",
+    //Account
+    "login": "api/Account/Login",
 }
 

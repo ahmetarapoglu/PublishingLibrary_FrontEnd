@@ -28,6 +28,7 @@ const Login = () => {
     const onFinish = async (values: any) => {
         setLoading(true)
         setDisabled(true)
+        console.info("values", values)
         const res = await signIn("credentials", {
             userName: values.userName,
             password: values.password,
