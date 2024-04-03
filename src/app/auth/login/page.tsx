@@ -3,7 +3,7 @@ import Login from "../../../../components/views/login/page";
 const LoginPage = () => {
     return (
         <>
-            <h3>ddddddddddd</h3>
+            <h6>hellllllo</h6>
             <Login />
             <footer className="footer">
                 <div className="copyright-text">
