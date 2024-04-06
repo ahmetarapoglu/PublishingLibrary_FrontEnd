@@ -6,6 +6,7 @@ export default function Home() {
   const router = useRouter();
 
 
+
   router.push(path.login)
   return
 }
