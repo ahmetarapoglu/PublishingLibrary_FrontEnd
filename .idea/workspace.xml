@@ -45,7 +45,7 @@
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2fL4nlLXrQk2bWaDGUMhAsaVpmj" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -84,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713567192802</updated>
-      <workItem from="1713567194182" duration="2393000" />
+      <workItem from="1713567194182" duration="2703000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <option name="closed" value="true" />
@@ -118,7 +118,31 @@
       <option name="project" value="LOCAL" />
       <updated>1713596460568</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1713597360614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713597360614</updated>
+    </task>
+    <task id="LOCAL-00006" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1713597403882</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713597403882</updated>
+    </task>
+    <task id="LOCAL-00007" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1713597440711</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713597440711</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
