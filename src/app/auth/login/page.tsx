@@ -3,6 +3,7 @@ import Login from "../../../../components/views/login/page";
 const LoginPage = () => {
     return (
         <>
+            <h6>master4</h6>
             <h6>master3</h6>
             <h6>master2</h6>
             <h6>master1</h6>
