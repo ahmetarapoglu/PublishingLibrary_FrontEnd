@@ -4,7 +4,9 @@ const LoginPage = () => {
     return (
         <>
             <h6>master</h6>
-            <h1>No Updated</h1>
+            <h1>Updatedssss</h1>
+            <h1>Updatedssss</h1>
+            <h1>Updatedssss</h1>
             {/*<Login/>*/}
             {/*<footer className="footer">*/}
             {/*    <div className="copyright-text">*/}
