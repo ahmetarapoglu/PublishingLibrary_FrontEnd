@@ -1,0 +1,129 @@
+Index: src/app/auth/login/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Login from \"../../../../components/views/login/page\";\r\n\r\nconst LoginPage = () => {\r\n    return (\r\n        <>\r\n            <h6>master</h6>\r\n                        <h6>master</h6>\r\n\r\n            <Login />\r\n            <footer className=\"footer\">\r\n                <div className=\"copyright-text\">\r\n                    BookShop ©2023 Created By AR7B.\r\n                </div>\r\n            </footer>\r\n        </>\r\n    );\r\n};\r\n\r\nexport default LoginPage;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/auth/login/page.tsx b/src/app/auth/login/page.tsx
+--- a/src/app/auth/login/page.tsx	(revision 3f5828c77577c886cb7d91208d756da9f8cf2e8e)
++++ b/src/app/auth/login/page.tsx	(date 1713568126789)
+@@ -3,9 +3,7 @@
+ const LoginPage = () => {
+     return (
+         <>
+-            <h6>master</h6>
+-                        <h6>master</h6>
+-
++            <h6>hellllllssssssssssssssssssssssssssso</h6>
+             <Login />
+             <footer className="footer">
+                 <div className="copyright-text">
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1713567643390)
++++ b/.idea/vcs.xml	(date 1713567643390)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1713567643383)
++++ b/.idea/misc.xml	(date 1713567643383)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1713567643364)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1713567643364)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
++  </profile>
++</component>
+\ No newline at end of file
+Index: .idea/PublishingLibrary_FrontEnd.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/PublishingLibrary_FrontEnd.iml b/.idea/PublishingLibrary_FrontEnd.iml
+new file mode 100644
+--- /dev/null	(date 1713567643377)
++++ b/.idea/PublishingLibrary_FrontEnd.iml	(date 1713567643377)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1713567643371)
++++ b/.idea/modules.xml	(date 1713567643371)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/PublishingLibrary_FrontEnd.iml" filepath="$PROJECT_DIR$/.idea/PublishingLibrary_FrontEnd.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1713567643355)
++++ b/.idea/.gitignore	(date 1713567643355)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
