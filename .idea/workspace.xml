@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0820ee01-cf9b-40fe-b09d-635afeb3801f" name="Changes" comment="aaaaaa" />
+    <list default="true" id="0820ee01-cf9b-40fe-b09d-635afeb3801f" name="Changes" comment="aaaaaa">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/login/page.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +22,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="helllo" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,7 +60,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "sonbranch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ihab/Desktop/GitHub/PublishingLibrary_FrontEnd",
     "node.js.detected.package.eslint": "true",
@@ -84,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713567192802</updated>
-      <workItem from="1713567194182" duration="2703000" />
+      <workItem from="1713567194182" duration="3679000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <option name="closed" value="true" />
@@ -142,7 +145,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713597440711</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1713597473858</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713597473858</updated>
+    </task>
+    <task id="LOCAL-00009" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1713597582696</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713597582696</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +178,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="sonbranch" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="helllo" />
@@ -206,7 +230,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="helllo" />
+                        <option value="sonbranch" />
                       </list>
                     </value>
                   </entry>
