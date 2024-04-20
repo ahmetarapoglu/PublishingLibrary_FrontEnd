@@ -5,7 +5,8 @@ const LoginPage = () => {
         <>
             <h6>master</h6>
             <h1>Updated</h1>
-
+            <h2>Updated</h2>
+            <h3>Updated</h3>
             {/*<Login/>*/}
             {/*<footer className="footer">*/}
             {/*    <div className="copyright-text">*/}
