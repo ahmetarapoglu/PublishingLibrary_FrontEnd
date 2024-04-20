@@ -5,6 +5,7 @@ const LoginPage = () => {
         <>
             <h6>master1</h6>
             <h1>laaa</h1>
+            <h6>master1</h6>
             <Login/>
             <footer className="footer">
                 <div className="copyright-text">
