@@ -4,6 +4,9 @@ const LoginPage = () => {
     return (
         <>
             <h6>master1</h6>
+            <h6>master1</h6>
+            <h6>master1</h6>
+            <h6>master1</h6>
             <Login/>
             <footer className="footer">
                 <div className="copyright-text">
