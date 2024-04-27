@@ -3,8 +3,8 @@ import Login from "../../../../components/views/login/page";
 const LoginPage = () => {
     return (
         <>
-            <h6>master</h6>
-            <h1>Updated</h1>
+            {/* <h6>master</h6>
+            <h1>Updated</h1> */}
 
             {/*<Login/>*/}
             {/*<footer className="footer">*/}
