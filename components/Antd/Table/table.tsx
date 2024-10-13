@@ -33,8 +33,9 @@ const AntdTable = ({ searchParams, columns, tableEndPoint, addEndPoind, getItemE
         try {
             setLoading(true)
             const response = await postData(pagination, tableEndPoint)
-            setDataSource(response?.data.data)
-            setTotal(response?.data.total)
+            console.info("response", response)
+            setDataSource(response?.data.total)
+            setTotal(response?.data.data)
             setLoading(!response?.status)
         } catch (err) {
             throw new Error("message :" + err)
