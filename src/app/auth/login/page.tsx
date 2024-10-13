@@ -6,7 +6,7 @@ const LoginPage = () => {
             <Login />
             <footer className="footer">
                 <div className="copyright-text">
-                    sfsdfsfdsdf
+                    sfs11111111111111111
                 </div>
             </footer>
         </>
