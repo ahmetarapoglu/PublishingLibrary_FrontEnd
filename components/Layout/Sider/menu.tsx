@@ -8,18 +8,20 @@ import { AiFillHome } from "react-icons/ai";
 
 import { Menu } from 'antd';
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { getSearchValue } from "../../../store/slice/tableStateSlice";
 import { useDispatch } from "react-redux";
 
 const MenuPage = () => {
     const router = useRouter();
+    const pathname = usePathname();
     const dispatch = useDispatch();
 
     return (
         <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={['1']}
+            selectedKeys={[pathname.replace(/^\//, '')]}
             onSelect={({ key, keyPath }) => {
                 dispatch(getSearchValue(""))
             }}
