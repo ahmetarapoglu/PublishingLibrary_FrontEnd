@@ -13,6 +13,129 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.admin-dashboard {
+  color: #172033;
+
+  .admin-hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 44px;
+    border-radius: 16px;
+    background: linear-gradient(125deg, #211442 0%, #5b3f9a 62%, #7659b8 100%);
+    color: #fff;
+
+    h1 {
+      max-width: 700px;
+      margin: 14px 0 8px;
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    p {
+      max-width: 600px;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1rem;
+    }
+
+    .ant-btn-primary {
+      background: #fff;
+      color: #5b3f9a;
+      box-shadow: none;
+    }
+  }
+
+  .admin-hero-mark {
+    align-self: center;
+    padding-right: 4%;
+    color: rgba(255, 255, 255, 0.12);
+    font-size: 9rem;
+    line-height: 1;
+    transform: rotate(-8deg);
+  }
+
+  .admin-section {
+    margin-top: 36px;
+  }
+
+  .admin-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+
+    h2 {
+      margin: 4px 0 0;
+    }
+  }
+
+  .admin-area-card {
+    height: 100%;
+    border-color: #ebe7f4;
+
+    h3 {
+      margin: 18px 0 8px;
+    }
+
+    p {
+      min-height: 66px;
+      color: #687086;
+    }
+  }
+
+  .admin-area-icon {
+    background: #eee9f8;
+    color: #5b3f9a;
+  }
+
+  .admin-area-link {
+    height: auto;
+    padding: 0;
+    color: #5b3f9a;
+    font-weight: 600;
+  }
+
+  .admin-help-card {
+    margin-top: 24px;
+    background: #f8f6fc;
+    border-color: #ebe7f4;
+
+    .ant-card-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    h3,
+    p {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-dashboard {
+    .admin-hero {
+      padding: 28px 22px;
+    }
+
+    .admin-hero-mark {
+      display: none;
+    }
+
+    .admin-section-heading,
+    .admin-help-card .ant-card-body {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
+
 .loading {
   display: flex;
   justify-content: center;
